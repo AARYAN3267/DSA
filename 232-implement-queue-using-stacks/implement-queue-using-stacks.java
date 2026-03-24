@@ -11,9 +11,9 @@ Stack<Integer> s1;
     }
     
     public int pop() {
-        while(!s1.isEmpty()){
+        while(s1.size()>1){
             s2.push(s1.pop());}
-            int ans= s2.pop();
+            int ans= s1.pop();
              while(!s2.isEmpty()){
             s1.push(s2.pop());}
             return ans;
@@ -21,12 +21,13 @@ Stack<Integer> s1;
     }
     
     public int peek() {
-      while(!s1.isEmpty()){
+     while(s1.size()>1){
             s2.push(s1.pop());}
-            int ans= s2.peek();
+            int ans= s1.pop();
+            s1.push(ans);
              while(!s2.isEmpty()){
             s1.push(s2.pop());}
-            return ans;   
+            return ans; 
     }
     
     public boolean empty() {
