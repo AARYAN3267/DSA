@@ -1,15 +1,19 @@
 class Solution {
     public int closestTarget(String[] words, String target, int startIndex) {
         int n = words.length;
-        int ans = Integer.MAX_VALUE;
+        int i = startIndex;
+        int steps = 0;
+        int min = Integer.MAX_VALUE;
 
-        for (int i = 0; i < n; i++) {
+        while (steps < n) {
             if (words[i].equals(target)) {
-                int d = Math.abs(i - startIndex);
-                ans = Math.min(ans, Math.min(d, n - d));
+                min = Math.min(min, Math.min(steps, n - steps));
             }
+
+            i = (i + 1) % n;
+            steps++;
         }
 
-        return ans == Integer.MAX_VALUE ? -1 : ans;
+        return min == Integer.MAX_VALUE ? -1 : min;
     }
 }
