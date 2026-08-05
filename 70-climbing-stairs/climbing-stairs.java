@@ -1,13 +1,14 @@
 class Solution {
     public int climbStairs(int n) {
-    if(n <= 2) return n;
-        int a = 1;
-        int b = 2;
-for(int i = 3; i <= n; i++) {
-            int c = a + b;
-            a = b;
-            b = c;
+        int dp[]= new int[n+1];
+        Arrays.fill(dp,-1);
+        return findways(n,dp);
+    }
+    public  int findways(int n, int dp[]){
+        if(n==1||n==0){
+            return 1;
         }
- return b;  
+        if(dp[n]!=-1)return dp[n];
+         return dp[n]= findways(n-1,dp)+findways(n-2,dp);
     }
 }
