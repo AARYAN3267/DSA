@@ -9,9 +9,9 @@ class Solution {
         pq.offer(++temp);
         k--;
      }
-     while(!pq.isEmpty()){
-        ans= (ans*pq.poll())%MOD;
-     }
+    for(int a:pq){
+        ans=(ans*a)%MOD;
+    }
      return (int)ans;
     }
 }
