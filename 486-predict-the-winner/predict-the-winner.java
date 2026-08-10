@@ -1,11 +1,18 @@
-class Solution {
-    public int fun(int[]nums, int i, int j){
+class Solution { 
+    //dp laga do woh toh constrains chote iss liye chl gya..otherwise it would have kicked my ass
+        //for satisfaction dp wala bhi karleta hu submit
+    public int fun(int[]nums, int[][]dp,int i, int j){
     if(i==j)return nums[i];
-    int left =nums[i]-fun(nums,i+1,j);
-    int right= nums[j]-fun(nums,i,j-1);
-    return Math.max(left,right);
+    if(dp[i][j]!=-1)return dp[i][j];
+    int left =nums[i]-fun(nums,dp,i+1,j);
+    int right= nums[j]-fun(nums,dp,i,j-1);
+    return dp[i][j]= Math.max(left,right);
     }
     public boolean predictTheWinner(int[] nums) {
-       return fun(nums,0,nums.length-1)>=0; 
+        int n= nums.length;
+        int dp[][]= new int[n][n];
+        for(int a[]:dp){Arrays.fill(a,-1);}
+      
+               return fun(nums,dp,0,nums.length-1)>=0; 
     }
 }
