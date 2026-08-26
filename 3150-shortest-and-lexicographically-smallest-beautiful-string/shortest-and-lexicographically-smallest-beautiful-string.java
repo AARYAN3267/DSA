@@ -8,7 +8,7 @@ class Solution {
             if (s.charAt(i) == '1')
                 count++;
 
-            while (count >= k) {
+            while (count == k) {
                 if (count == k) {
                     int len = i - j + 1;
                     if (len < min) {
