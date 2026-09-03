@@ -10,11 +10,7 @@ class Solution {
             if(a%2!=0)return false;
         }
       }
-      else{
-        for(int a:nums1){
-            if(a%2==0&&(a-small)%2==0)return false;
-        }
-      }  
+     
       return true;
     }
 }
